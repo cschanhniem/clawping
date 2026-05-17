@@ -1,4 +1,7 @@
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
+
+const repoRoot = fileURLToPath(new URL('.', import.meta.url));
 
 export default defineConfig({
   test: {
@@ -25,8 +28,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@clawping/shared': '/Volumes/SSD/clawping/clawping/packages/shared/src/index.ts',
-      'cloudflare:workers': '/Volumes/SSD/clawping/clawping/test-shims/cloudflare-workers.ts',
+      '@clawping/shared': `${repoRoot}packages/shared/src/index.ts`,
+      'cloudflare:workers': `${repoRoot}test-shims/cloudflare-workers.ts`,
     },
   },
 });
