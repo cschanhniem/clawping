@@ -1,0 +1,37 @@
+name = "clawping"
+main = "src/index.ts"
+compatibility_date = "2026-05-17"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+APP_BASE_URL = "http://127.0.0.1:8787"
+HEARTBEAT_WARNING_SECONDS = "180"
+HEARTBEAT_CRITICAL_SECONDS = "300"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "clawping"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+[[queues.producers]]
+binding = "ALERT_QUEUE"
+queue = "clawping-alerts"
+
+[[queues.consumers]]
+queue = "clawping-alerts"
+retry_delay = 300
+
+[[durable_objects.bindings]]
+name = "DEVICE_STATE"
+class_name = "DeviceState"
+
+[triggers]
+crons = ["* * * * *"]
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["DeviceState"]

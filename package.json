@@ -1,0 +1,26 @@
+{
+  "name": "clawping",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.10.0",
+  "scripts": {
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm test:ts && pnpm test:go",
+    "test:ts": "vitest run",
+    "test:go": "cd agent && go test ./...",
+    "coverage": "pnpm coverage:ts && pnpm coverage:go",
+    "coverage:ts": "vitest run --coverage",
+    "coverage:go": "./scripts/check-go-coverage.sh",
+    "worker:dev": "pnpm --filter @clawping/worker dev",
+    "dashboard:dev": "pnpm --filter @clawping/dashboard dev"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "jsdom": "^26.1.0",
+    "vitest": "^3.2.4"
+  }
+}

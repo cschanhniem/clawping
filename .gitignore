@@ -1,0 +1,12 @@
+.omx
+node_modules
+dist
+.wrangler
+.vite
+coverage
+*.log
+.DS_Store
+agent/dist
+agent/clawping-agent
+agent/clawping-agent-static
+agent/*.out

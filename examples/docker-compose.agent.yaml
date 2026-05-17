@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  clawping-agent:
+    image: clawping/agent:latest
+    container_name: clawping-agent
+    restart: unless-stopped
+    volumes:
+      - /:/host:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./agent.yaml:/etc/clawping/agent.yaml:ro
+    environment:
+      - CLAWPING_DEVICE_TOKEN=cp_device_xxxxx

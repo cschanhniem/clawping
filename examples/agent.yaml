@@ -1,0 +1,35 @@
+server: "https://api.clawping.app"
+device_token: "cp_device_xxxxx"
+device_name: "home-mini-pc"
+interval_seconds: 60
+
+checks:
+  - type: http
+    name: Immich
+    url: "http://127.0.0.1:2283"
+    expected_status: 200
+    timeout_seconds: 10
+
+  - type: disk
+    name: Root Disk
+    path: "/"
+    warning_percent: 80
+    critical_percent: 90
+
+  - type: disk
+    name: Data Disk
+    path: "/data"
+    warning_percent: 80
+    critical_percent: 90
+
+  - type: backup_freshness
+    name: Restic Daily Backup
+    path: "/backups/last-success.txt"
+    max_age_hours: 26
+
+  - type: docker_container
+    name: Vaultwarden
+    container: "vaultwarden"
+    alert_on:
+      - stopped
+      - unhealthy

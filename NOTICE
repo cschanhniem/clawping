@@ -1,0 +1,11 @@
+ClawPing is an original Workers-first home-server monitoring project.
+
+Architectural study input came from the public UptimeFlare repository:
+https://github.com/lyc8503/UptimeFlare
+
+This workspace uses the idea shape of:
+- Cloudflare Worker scheduling
+- D1-backed status persistence
+- simple status-first Worker routing
+
+No verbatim upstream source files are intentionally copied into this repository.
