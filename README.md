@@ -1,5 +1,8 @@
 # ClawPing
 
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cschanhniem/clawping/tree/main/apps/worker)
+[![Built with Cloudflare](https://workers.cloudflare.com/built-with-cloudflare.svg)](https://workers.cloudflare.com/)
+
 ClawPing is a Cloudflare Workers-first Telegram watchdog for home servers, mini PCs, NAS boxes, and self-hosted apps.
 
 A tiny local agent checks your machine from the inside, then sends outbound heartbeats to your ClawPing Worker. If your server stops checking in, a backup goes stale, a disk fills up, or a Docker container dies, ClawPing alerts you through Telegram.
@@ -30,4 +33,4 @@ pnpm --filter @clawping/worker dev
 pnpm --filter @clawping/dashboard dev
 ```
 
-See [docs/self-deploy.md](./docs/self-deploy.md) for the Cloudflare path and [docs/agent-linux.md](./docs/agent-linux.md) for the agent install path.
+See [docs/cloudflare-deploy.md](./docs/cloudflare-deploy.md) for the Cloudflare path and [docs/agent-linux.md](./docs/agent-linux.md) for the agent install path.
